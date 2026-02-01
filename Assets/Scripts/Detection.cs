@@ -4,7 +4,7 @@ public class Detection : MonoBehaviour
 {
     [SerializeField] private Transform headDetector;
     [SerializeField] private Transform bodyDetector;
-    [SerializeField] private Transform parriDetector;
+    [SerializeField] private Transform parryDetector;
     [SerializeField] private Transform armDetector;
     [SerializeField] private Transform agarreDetector;
 

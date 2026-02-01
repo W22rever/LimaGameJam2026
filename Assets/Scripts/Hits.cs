@@ -1,62 +1,85 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Hits : MonoBehaviour
 {
-    private bool isHitting;
-
-    private bool softHit;
-    private bool hardHit;
-    private bool parry;
-    private bool grab;
-
     private Animator animator;
+    private PlayerInput playerInput;
 
-    private void Awake() => animator = GetComponent<Animator>();
+    // Acciones específicas para combate
+    private InputAction softHitAction;
+    private InputAction hardHitAction;
+    private InputAction parryAction;
+    private InputAction grabAction;
 
-    private void Update()
+    private bool isAttacking = false;
+
+    private void Awake()
     {
-        hardHit = Gamepad.current.buttonNorth.wasPressedThisFrame;
-        softHit = Gamepad.current.buttonWest.wasPressedThisFrame;
-        parry = Gamepad.current.buttonEast.wasPressedThisFrame;
-        grab = Gamepad.current.buttonSouth.wasPressedThisFrame;
+        animator = GetComponent<Animator>();
+        playerInput = GetComponent<PlayerInput>();
 
-        if (!isHitting)
+        // BUSCAMOS LAS ACCIONES EN EL COMPONENTE LOCAL (Igual que en Movement)
+        // Asegúrate que estos nombres coincidan con tu Input Actions
+        softHitAction = playerInput.actions["SoftHit"];
+        hardHitAction = playerInput.actions["HardHit"];
+        parryAction = playerInput.actions["Parry"];
+        grabAction = playerInput.actions["Grab"];
+    }
+
+    private void OnEnable()
+    {
+        // Nos suscribimos
+        softHitAction.performed += ctx => PerformAttack("Soft");
+        hardHitAction.performed += ctx => PerformAttack("Hard");
+        parryAction.performed += ctx => PerformAttack("Parry");
+        grabAction.performed += ctx => PerformAttack("Grab");
+
+        softHitAction.Enable();
+        hardHitAction.Enable();
+        parryAction.Enable();
+        grabAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        // Nos desuscribimos
+        softHitAction.performed -= ctx => PerformAttack("Soft");
+        hardHitAction.performed -= ctx => PerformAttack("Hard");
+        parryAction.performed -= ctx => PerformAttack("Parry");
+        grabAction.performed -= ctx => PerformAttack("Grab");
+
+        softHitAction.Disable();
+        hardHitAction.Disable();
+        parryAction.Disable();
+        grabAction.Disable();
+    }
+
+    private void PerformAttack(string type)
+    {
+        // Aquí podrías activar una corrutina para resetear 'isAttacking' tras X tiempo
+        // Por ahora, solo lanzamos la animación.
+
+        switch (type)
         {
-            if (softHit) ActiveSoftHit();
-            else if (hardHit) ActiveHardHit();
-            else if (parry)ActiveParry();
-            else if (grab) ActiveGrab();
+            case "Soft":
+                AnimationHandler.SoftAttackAnim(animator);
+                break;
+            case "Hard":
+                AnimationHandler.HardAttackAnim(animator);
+                break;
+            case "Parry":
+                AnimationHandler.ParryAnim(animator);
+                break;
+            case "Grab":
+                AnimationHandler.CatchAnim(animator);
+                break;
         }
-      
     }
 
-    private void ActiveSoftHit()
-    { 
-        isHitting = !isHitting;
-        AnimationHandler.SoftAttackAnim(animator);
-        isHitting = !isHitting;
-    }
-
-    private void ActiveHardHit()
+    // Método opcional para llamar desde un Animation Event al final de la animación de ataque
+    public void FinishAttack()
     {
-        isHitting = !isHitting;
-        AnimationHandler.HardAttackAnim(animator);
-        isHitting = !isHitting;
-    }
-
-    private void ActiveParry()
-    {
-        isHitting = !isHitting;
-        AnimationHandler.ParryAnim(animator);
-        isHitting = !isHitting;
-    }
-
-    private void ActiveGrab()
-    {
-        isHitting = !isHitting;
-        AnimationHandler.CatchAnim(animator);
-        isHitting = !isHitting;
+        isAttacking = false;
     }
 }

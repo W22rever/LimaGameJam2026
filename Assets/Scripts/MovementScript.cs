@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class MovementScript : MonoBehaviour
 {
     [Header("Movement")]
@@ -11,13 +12,14 @@ public class MovementScript : MonoBehaviour
     private Vector2 moveDirection;
 
     [Header("Dash")]
-    [SerializeField] private float dashForce;
-    [SerializeField] private float dashDuration;
+    [SerializeField] private float dashForce = 10f;
+    [SerializeField] private float dashDuration = 0.2f;
 
-    [Header("InputMaps")]
-    [SerializeField] private InputActionReference move;
-    [SerializeField] private InputActionReference attack;
-    [SerializeField] private InputActionReference dash;
+    // --- CAMBIO 1: Variables internas, no serializadas ---
+    private PlayerInput playerInput;
+    private InputAction moveAction;
+    private InputAction dashAction;
+    // ---------------------------------------------------
 
     private bool canDash = true;
     private bool canMove = true;
@@ -26,27 +28,28 @@ public class MovementScript : MonoBehaviour
 
     private Animator animator;
 
-
     void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        playerInput = GetComponent<PlayerInput>();
+
+        moveAction = playerInput.actions["Movement"];
+        dashAction = playerInput.actions["Dash"];
     }
 
     void Update()
     {
         if (canMove)
         {
-            moveDirection = move.action.ReadValue<Vector2>();
-
-           // if (moveDirection.x > 0 && !isFacingRight) Flip();
-           // else if (moveDirection.x < 0 && isFacingRight) Flip();
+            moveDirection = moveAction.ReadValue<Vector2>();
         }
     }
-        
+
     private void FixedUpdate()
     {
-        if(canMove)
+        if (canMove)
         {
             AnimationHandler.MovementAnim(animator, moveDirection);
             rb2D.linearVelocity = new Vector2(moveDirection.x * speed, rb2D.linearVelocity.y);
@@ -58,21 +61,14 @@ public class MovementScript : MonoBehaviour
         if (!canDash) return;
 
         string controlName = context.control.name.ToLower();
-
         float dashDirection = 0f;
 
-        if (controlName.Contains("right"))
-        {
-            dashDirection = 1f;
-        }
-        else if (controlName.Contains("left"))
-        {
-            dashDirection = -1f;
-        }
+        if (controlName.Contains("right")) dashDirection = 1f;
+        else if (controlName.Contains("left")) dashDirection = -1f;
 
         bool correctRight = (dashDirection > 0 && isFacingRight);
 
-        bool correctLeft = (dashDirection < 0 && isFacingRight);
+        bool correctLeft = (dashDirection < 0 && !isFacingRight);
 
         if (correctRight || correctLeft)
         {
@@ -81,7 +77,7 @@ public class MovementScript : MonoBehaviour
     }
 
     private IEnumerator DashingRoutine(float direction)
-    {   
+    {
         canDash = false;
         canMove = false;
 
@@ -91,57 +87,25 @@ public class MovementScript : MonoBehaviour
 
         yield return new WaitForSeconds(dashDuration);
 
-
         rb2D.linearVelocity = Vector2.zero;
 
         canMove = true;
-
-        yield return new WaitForSeconds(0.5f); // Cooldown para no del dash
-
         canDash = true;
     }
 
-    /*private void Dashing(float direction)
-    {
-        canDash = false;
-        canMove = false;
-
-        
-
-        rb2D.linearVelocity = new Vector2(direction * dashForce, 0f);
-
-        //rb2D.linearVelocity = Vector2.zero;
-
-        canMove = true;
-        canDash = true;
-
-        
-    }/*
-
-   /* private bool Flip()
-    {
-        isFacingRight = !isFacingRight;
-        if (isFacingRight) transform.localScale = new Vector3(1,1,1);
-        else transform.localScale = new Vector3(-1,1,1);
-            Debug.Log(isFacingRight);
-        return isFacingRight;
-        
-    }*/
-
     private void OnEnable()
     {
-        dash.action.performed += OnDashing;
-        
-        dash.action.Enable();
-        move.action.Enable();
+        dashAction.performed += OnDashing;
+
+        dashAction.Enable();
+        moveAction.Enable();
     }
 
     private void OnDisable()
     {
-        dash.action.performed -= OnDashing;
-        
-        dash.action.Disable();
-        move.action.Disable();
+        dashAction.performed -= OnDashing;
+
+        dashAction.Disable();
+        moveAction.Disable();
     }
 }
-
