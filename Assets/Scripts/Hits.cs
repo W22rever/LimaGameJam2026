@@ -63,6 +63,7 @@ public class Hits : MonoBehaviour
         switch (type)
         {
             case "Soft":
+               // SoundManager.Instance.PlaySFX();
                 AnimationHandler.SoftAttackAnim(animator);
                 break;
             case "Hard":

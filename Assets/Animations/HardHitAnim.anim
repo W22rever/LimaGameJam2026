@@ -312,6 +312,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.16666667
         value: -0.14650002
+        inSlope: -0.043910634
+        outSlope: -0.043910634
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.33333334
+        value: -0.15015924
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -342,6 +351,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.16666667
         value: 0.6977499
+        inSlope: 1.3173059
+        outSlope: 1.3173059
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.33333334
+        value: 0.8075254
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -372,8 +390,17 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.16666667
         value: -0.042864323
-        inSlope: -0.526159
-        outSlope: -0.526159
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.33333334
+        value: 0.123107255
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -411,6 +438,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.16666667
         value: 0.99918437
+        inSlope: 2.621959
+        outSlope: 2.621959
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.33333334
+        value: 1.3506149
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -557,6 +593,45 @@ AnimationClip:
     classID: 212
     script: {fileID: 0}
     flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.33333334
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.41666666
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: HurtBox/Arm
+    classID: 61
+    script: {fileID: 0}
+    flags: 0
   m_PPtrCurves:
   - serializedVersion: 2
     curve:
@@ -678,6 +753,15 @@ AnimationClip:
     - serializedVersion: 2
       path: 2780061564
       attribute: 4197328169
+      script: {fileID: 0}
+      typeID: 61
+      customType: 0
+      isPPtrCurve: 0
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    - serializedVersion: 2
+      path: 2780061564
+      attribute: 3305885265
       script: {fileID: 0}
       typeID: 61
       customType: 0
@@ -947,6 +1031,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.16666667
         value: -0.14650002
+        inSlope: -0.043910634
+        outSlope: -0.043910634
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.33333334
+        value: -0.15015924
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -977,6 +1070,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.16666667
         value: 0.6977499
+        inSlope: 1.3173059
+        outSlope: 1.3173059
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.33333334
+        value: 0.8075254
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1007,8 +1109,17 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.16666667
         value: -0.042864323
-        inSlope: -0.526159
-        outSlope: -0.526159
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.33333334
+        value: 0.123107255
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -1046,6 +1157,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.16666667
         value: 0.99918437
+        inSlope: 2.621959
+        outSlope: 2.621959
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.33333334
+        value: 1.3506149
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1802,6 +1922,45 @@ AnimationClip:
     attribute: m_Color.a
     path: Mask
     classID: 212
+    script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.33333334
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.41666666
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: HurtBox/Arm
+    classID: 61
     script: {fileID: 0}
     flags: 0
   m_EulerEditorCurves: []

@@ -4,12 +4,12 @@
     "maps": [
         {
             "name": "Player1",
-            "id": "3410aa14-b172-406f-b0f7-91d4927dd132",
+            "id": "583729a4-c649-4491-b5c2-1d3ff6199df6",
             "actions": [
                 {
                     "name": "Movement",
                     "type": "Value",
-                    "id": "d3af11d4-bfb8-4f68-bdf8-bd3a630e9ef5",
+                    "id": "837d6d9c-ae52-4248-b3ed-10e5d536e997",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -18,16 +18,43 @@
                 {
                     "name": "Dash",
                     "type": "Button",
-                    "id": "b2565f29-309d-4cb8-b108-b0d060db33e1",
+                    "id": "0874c6cb-c05e-44a3-ad4c-da9366d44077",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Hits",
+                    "name": "SoftHit",
                     "type": "Button",
-                    "id": "44a86f03-7f1e-49d9-939d-4a8e25d2c1f4",
+                    "id": "ea05f8bc-b98a-47a7-8627-09ad3931a3b5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HardHit",
+                    "type": "Button",
+                    "id": "ba0ec716-39d4-4944-b426-43989ef12430",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Parry",
+                    "type": "Button",
+                    "id": "d261ec01-1322-4dfd-a46c-ec4d74d3a332",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "f8fd9bf4-8be7-4498-9ba9-361104242fa2",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -37,7 +64,7 @@
             "bindings": [
                 {
                     "name": "2D Vector",
-                    "id": "91f370b3-bbc1-4514-8965-2b532c123d35",
+                    "id": "4d9f3378-e9aa-48b2-aaf6-d04e86eece04",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -48,7 +75,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "1c1396e2-2e9b-491e-a58d-927e416d833e",
+                    "id": "b6b2dae8-fbc4-44a4-83dd-af867cd91f94",
                     "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
@@ -59,7 +86,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "5ffa3745-0e94-4a8d-9bb5-a9ba7ec2b34e",
+                    "id": "ff6c322a-a701-44bb-8864-b8c0cd2c46c9",
                     "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
@@ -70,7 +97,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "9a009725-b851-453d-bed1-3d1c9136d094",
+                    "id": "844a3443-5b4b-4ecc-a8c4-c2dc7f895ae3",
                     "path": "<Gamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
@@ -81,7 +108,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "e8f6687b-7bb0-4332-aa2a-b3e39d313eb7",
+                    "id": "4c81ee3e-1f71-4881-99c9-42505fab968c",
                     "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
@@ -92,51 +119,51 @@
                 },
                 {
                     "name": "",
-                    "id": "07d8b2dc-03c0-4089-b478-7a6fa56e78c9",
+                    "id": "b9e52ea6-afeb-4656-a4a1-104025b01418",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad;Joystick",
-                    "action": "Hits",
+                    "action": "SoftHit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "28302549-1f6e-453e-b3a8-f40c5f0bed24",
+                    "id": "30d72620-2d9a-4434-ac82-a7d69f26f506",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad;Joystick",
-                    "action": "Hits",
+                    "action": "HardHit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "f360d9b3-1c65-4bfb-8a35-51fde7f6872f",
+                    "id": "fdf8c45e-b306-4c86-b8b9-96ebd73b9c35",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Joystick;Gamepad",
-                    "action": "Hits",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "af2a5b02-270d-4043-8bf8-e91b6f0bd322",
+                    "id": "4d9a911b-acb1-4b93-8d5b-1debc01650a0",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad;Joystick",
-                    "action": "Hits",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "5a285ed1-35a1-45ae-973d-0b80b84cbaa0",
+                    "id": "40525766-711e-401e-9191-080495e13de9",
                     "path": "<Gamepad>/dpad/right",
                     "interactions": "MultiTap(tapDelay=0.35)",
                     "processors": "",
@@ -147,7 +174,7 @@
                 },
                 {
                     "name": "",
-                    "id": "5af0482c-ef72-4e3b-8333-c31978a80fed",
+                    "id": "274d38a4-fe42-4ee3-a071-53fffd0848c1",
                     "path": "<Gamepad>/dpad/left",
                     "interactions": "MultiTap(tapDelay=0.35)",
                     "processors": "",
@@ -181,9 +208,36 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Hits",
+                    "name": "SoftHit",
                     "type": "Button",
                     "id": "8a7b59ac-adc3-463e-96a9-a7b4e1ba43a3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HardHit",
+                    "type": "Button",
+                    "id": "e3d8a6e1-4d9d-4077-8410-24bac2eba5de",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Parry",
+                    "type": "Button",
+                    "id": "b45721c8-7d3b-4404-999e-dfb156473280",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "86aa8381-cbb4-40e8-ae9a-6bb2be31dc6f",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -253,40 +307,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad;Joystick",
-                    "action": "Hits",
+                    "action": "SoftHit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b05bd536-87eb-40de-bc56-ce64d5eb1782",
+                    "id": "e7f6df8c-e47a-467f-a549-53ef068d6cef",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad;Joystick",
-                    "action": "Hits",
+                    "action": "HardHit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "4b03b24d-6af2-43d2-ad22-4486da6837ef",
+                    "id": "78b27ab6-e514-46dd-b370-7a06a7085f85",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Joystick;Gamepad",
-                    "action": "Hits",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "3b489ba5-29a8-4877-89ea-6be0d9b35e4c",
+                    "id": "33f50a69-3404-46d3-8661-43b67e874b3c",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad;Joystick",
-                    "action": "Hits",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
